@@ -10,6 +10,7 @@ public abstract class Piece {
     }
 
     public abstract boolean isValidMove(int rowSource, int colSource, int rowTarget, int colTarget);
+    public abstract String toString();
 
     public Color getColor() {
         return this.color;

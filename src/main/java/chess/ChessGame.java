@@ -53,13 +53,17 @@ public class ChessGame {
 
         return board.getCell(row, col);
     }
+
+    private boolean isComplete() {
+        return true;
+    }
     
-    void play() {
+    public void start() {
         Player currentPlayer = this.player1;
         String sourceMessage = "'s turn: Please enter the coordinates of the piece you wish to move!";
         String targetMessage = "'s turn: Please enter the coordinates where you wish to place the piece!";
 
-        while (true) {
+        while (!isComplete()) {
             Cell source = this.selectCell(currentPlayer, sourceMessage);
             if (source.getPiece() != null && source.getPiece().getColor() != currentPlayer.getColor()) {
                 System.err.println("Selected coordinates do not contain your piece. Try again!");
@@ -72,6 +76,7 @@ public class ChessGame {
             }
 
             if (board.move(source, target)) {
+                board.display();
                 currentPlayer = (currentPlayer == player1) ? player2 : player1;
             }
         }

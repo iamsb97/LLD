@@ -10,4 +10,8 @@ public class Pawn extends Piece {
     public boolean isValidMove(int rowSource, int colSource, int rowTarget, int colTarget) {
         return true;
     }
+
+    public String toString() {
+        return new String("P");
+    }
 }

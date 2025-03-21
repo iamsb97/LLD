@@ -54,6 +54,21 @@ public class Board {
         return true;
     }
 
+    public void display() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print("|");
+                Piece piece = board[i][j].getPiece();
+                if (piece != null) {
+                    System.out.print(" " + piece.getColor().toString().charAt(0) + piece.toString() + " ");
+                } else {
+                    System.out.print("    ");
+                }
+            }
+            System.out.print("|\n");
+        }
+    }
+
     public Cell getCell(int row, int col) {
         return board[row][col];
     }
